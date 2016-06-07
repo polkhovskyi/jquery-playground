@@ -1,0 +1,186 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Language" content="English" />
+    <meta name="Description" content="Internet Jobs" />
+    <link rel="stylesheet" type="text/css" href="images/style.css" />
+    <link href="styles/pagination.css" rel="stylesheet" />
+    <link href="styles/styles.css" rel="stylesheet" />
+    <link href="styles/login.css" rel="stylesheet" />
+    <script src="scripts/jquery-2.2.3.min.js"></script>
+    <script src="scripts/jquery-ui-1.11.4.min.js"></script>
+    <script src="scripts/jquery.validate.min.js"></script>
+    <script src="libs/jsrender.min.js"></script>
+    <script src="libs/pagination.min.js"></script>
+    <script src="js/autocomplete.js"></script>
+    <script src="js/quote.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/news.js"></script>
+    <title>Internet News</title>
+
+    <script>
+        $().createAutocompleteAndInit("#pojam");
+        $().createNavigationAndInit("#navaccordion");
+        $().createQuoteAndInit("#additional");
+        $().createAuth();
+        $().createNews({
+            dataContainer: "data-container",
+            paginationContainer: "pagination-container",
+            pageSize: 7
+        });
+    </script>
+
+
+</head>
+<body>
+    <div id="header">
+        <div id="logo">
+            <p class="slogan"><b>Connecting Online people</b><br />Sharing IT trends</p>
+            <div style="float: left;">
+                <h1><a href="#">Internet News</a></h1>
+            </div>
+        </div>
+        <div id="hmenu">
+            <a href="#">Home</a><a href="#">Browse News</a><a href="#">Submit News</a>
+        </div>
+        <div id="hlogin">
+            <p>Hi,  You can <a href="#login-box" class="login-window">Login</a> here.</p>
+        </div>
+    </div>
+
+    <div class="content">
+
+
+
+        <div id="articles">
+            <div id="left">
+
+                <div id="newsbox">
+                    <h1>New posts</h1>
+
+                    <div id="data-container"></div>
+                    <div id="pagination-container"></div>
+                    <!--<div id="pagination">
+                        <div id="prev">
+                            <button>Prev</button>
+                        </div>
+                        <div id="pagenum">
+                            <span>Page 1</span>
+                        </div>
+                        <div id="next">
+                            <button>Next</button>
+                        </div>
+                    </div>-->
+
+                </div>
+
+
+            </div>
+
+            <div id="right">
+
+                <div id="searchform">
+                    <form method="post" class="search" action="/">
+                        <p>
+                            <input name="pojam" class="text" id="pojam" type="text" />
+                            <input name="search" class="button" value="Search" type="submit" />
+                        </p>
+                    </form>
+                </div>
+
+                <div id="rightmenu">
+                    <div id="navaccordion">
+                    </div>
+                </div>
+
+                <div class="rightarticle">
+                    <p>Lorem ipsum dolor sit amet, <a href="#">consectetuer adipiscing elit</a>, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, <a href="#">quis nostrud exerci</a>.</p>
+                </div>
+
+                <div class="rightarticle_ad">
+                    <a href="#">Featured Posts</a>
+                </div>
+                <div class="rightarticle_ad">
+                    <a href="#">Top 10 News</a>
+                </div>
+            </div>
+        </div>
+        <div id="links">
+            <p></p>
+        </div>
+    </div>
+
+    <div id="additional">
+        <p><b>Quote of the day: </b><span id="loveluquot">There may be no 'I' in team, but there's a 'ME' if you look hard enough. - David Brent</span></p>
+    </div>
+
+    <div id="whiteline"></div>
+
+    <div id="footer">
+        <p style="float: left;">
+            <a href="#">Archive</a><img src="images/separator.gif" alt="" /><a href="#">RSS Feed</a>
+            <br /><a href="#">CSS</a> and <a href="#">XHTML</a><img src="images/separator.gif" alt="" /><a href="#">Accessibility</a>
+        </p>
+        <p style="float: right; text-align: right;">
+            <a href="#">Contact Us</a><br />
+            &copy; 2011, <a href="#" title="Internet Jobs">Internet Jobs</a>
+        </p>
+    </div>
+    <div id="login-box" class="login-popup">
+        <form id="login" autocomplete="off">
+            <div class="form-group">
+                <h3>Sign in here</h3>
+                <div class="input-group">
+                    <div id="serverValidationResult"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="email">Email:</label>
+                <div class="input-group">
+                    <input class="form-control" placeholder="Email" name="myEmail" id="myEmail" type="text" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="password">Password:</label>
+                <div class="input-group">
+                    <input class="form-control" placeholder="Password" name="myPassword" id="myPassword" type="password" />
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <form id="register" autocomplete="off">
+            <div class="form-group">
+                <h3>Sign up here</h3>
+                <div class="input-group">
+                    <div id="serverValidationResult"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="email">Email:</label>
+                <div class="input-group">
+                    <input class="form-control" placeholder="Email" name="myEmail" id="myEmail" type="text" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="password">Password:</label>
+                <div class="input-group">
+                    <input class="form-control" placeholder="Password" name="myRegisterPassword" id="myRegisterPassword" type="text" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="password">Confirm password:</label>
+                <div class="input-group">
+                    <input class="form-control" placeholder="Confirm password" name="confirmMyPassword" id="confirmMyPassword" type="text" />
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+       
+    </div>
+    
+</body>
+</html>
