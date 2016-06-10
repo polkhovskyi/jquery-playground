@@ -29,8 +29,8 @@ $.fn.createNews = function (options) {
             itemTemplate: newItem
         }, options);
 
-        var paginationContainer = ("#" + settings.paginationContainer);
-        var dataContainer = ("#" + settings.dataContainer);
+        var paginationContainer = $("#" + settings.paginationContainer);
+        var dataContainer = $("#" + settings.dataContainer);
         var getNewsItems = function (items) {
             var result = [];
             var tmpl = $.templates(settings.itemTemplate);
@@ -52,16 +52,16 @@ $.fn.createNews = function (options) {
         }
 
         $(window).bind('hashchange', function () {
-            var pageNum = $(paginationContainer).pagination('getSelectedPageNum');
+            var pageNum = paginationContainer.pagination('getSelectedPageNum');
             var location = window.location.href.split("#")[1];
-            $(paginationContainer).pagination(location);
+            paginationContainer.pagination(location);
         });
 
         var quoteRequest = $.getJSON("./Content/news.json")
            .done(function (data) {
                var items = getNewsItems(data.stories);
 
-               $(paginationContainer).pagination({
+               paginationContainer.pagination({
                    dataSource: items,
                    pageSize: settings.pageSize,
                    pageNumber: getPageIndexFromHref(),
@@ -69,7 +69,7 @@ $.fn.createNews = function (options) {
                    showNavigator: true,
                    callback: function (data, pagination) {
                        document.location.href = document.location.href.split("#")[0] + "#" + pagination.pageNumber;
-                       $(dataContainer).html(data);
+                       dataContainer.html(data);
                    }
                });
            })

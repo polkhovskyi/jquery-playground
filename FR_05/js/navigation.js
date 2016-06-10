@@ -33,13 +33,10 @@
             items += item;
         });
 
-        $(element).html(items);
-        $(element).accordion({
+        $(element).html(items).accordion({
             active: activeIndex,
             heightStyle: "content"
-        });
-
-        $(element).on("accordionactivate", function (event, ui) {
+        }).on("accordionactivate", function (event, ui) {
             var active = $(event.currentTarget).accordion("option", "active");
             sessionStorage.setItem('activeIndex', active);
         });

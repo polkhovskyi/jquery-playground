@@ -6,9 +6,7 @@
                 //TODO: submit result somewhere
                 $("#searchform").submit(function (event) {
                     console.log(ui.item.value);
-                });
-
-                $("#searchform").submit();
+                }).submit();
 
                 return true;
             }

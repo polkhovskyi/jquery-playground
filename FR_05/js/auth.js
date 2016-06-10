@@ -12,8 +12,9 @@
 
         var loginServerError = "#" + settings.loginServerError;
         var registerServerError = "#" + settings.registerServerError;
-        var loginForm = '#' + settings.loginFormId;
-        var registerForm = '#' + settings.registerFormId;
+        var loginForm = $('#' + settings.loginFormId);
+        var registerForm = $('#' + settings.registerFormId);
+        var jqhlogin = $("#hlogin");
         $(settings.loginLinkSelector).click(function () {
             var closeBox = function () {
                 var str = '#mask, .' + settings.loginPopupClass;
@@ -22,21 +23,21 @@
                 });
             };
             var loginBox = $(this).attr('href');
-            $(loginBox).fadeIn(300);
-            var popMargTop = ($(loginBox).height() + 24) / 2;
-            var popMargLeft = ($(loginBox).width() + 24) / 2;
-            $(loginBox).css({
+            var jqloginbox = $(loginBox);
+            jqloginbox.fadeIn(300);
+            var popMargTop = (jqloginbox.height() + 24) / 2;
+            var popMargLeft = (jqloginbox.width() + 24) / 2;
+            jqloginbox.css({
                 'margin-top': -popMargTop,
                 'margin-left': -popMargLeft
             });
 
             $('body').append('<div id="mask"></div>');
-            $('#mask').fadeIn(300);
-            $('#mask').on('click', function () {
+            $('#mask').fadeIn(300).on('click', function () {
                 closeBox();
             });
 
-            $(loginForm).validate({
+            loginForm.validate({
                 rules: {
                     myEmail: {
                         required: true,
@@ -59,12 +60,12 @@
                     // here we should send data to server and get response
                     var email = form.myEmail.value,
                         emails = ["glen@marketo.com", "george@bush.gov", "me@god.com", "aboutface@cooper.com", "steam@valve.com", "bill@gates.com"];
-
+                    var jqform = $(form);
                     if ($.inArray(email, emails) == -1) {
-                        $(form).find(loginServerError).html("<span class='help-block'>Invalid email/password!</div>");
+                        jqform.find(loginServerError).html("<span class='help-block'>Invalid email/password!</div>");
                     } else {
-                        $(form).find(loginServerError).html("");
-                        $("#hlogin").html('<p class="good">You are logged in as ' + email + '</p>');
+                        jqform.find(loginServerError).html("");
+                        jqhlogin.html('<p class="good">You are logged in as ' + email + '</p>');
 
                         closeBox();
                     }
@@ -73,7 +74,7 @@
                 }
             });
 
-            $(registerForm).validate({
+            registerForm.validate({
                 rules: {
                     myEmail: {
                         required: true,
@@ -98,7 +99,7 @@
                 },
                 submitHandler: function (form) {
                     // here we should send data to server and get response
-                    $("#hlogin").html('<p class="good">Thanks for the registration. You are logged in as ' + form.myEmail.value + '</p>');
+                    jqhlogin.html('<p class="good">Thanks for the registration. You are logged in as ' + form.myEmail.value + '</p>');
                     closeBox();
                     return false;
                 }
