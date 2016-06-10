@@ -59,6 +59,11 @@ $.fn.createNews = function (options) {
 
         var quoteRequest = $.getJSON("./Content/news.json")
            .done(function (data) {
+               debugger;
+               if (!data || !data.stories || data.stories.length == 0) {
+                   return;
+               }
+
                var items = getNewsItems(data.stories);
 
                paginationContainer.pagination({

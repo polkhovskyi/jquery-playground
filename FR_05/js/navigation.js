@@ -1,5 +1,10 @@
 ﻿$.fn.createNavigationAndInit = function (element) {
-    $.getJSON("./Content/navigation.json", function (data) {
+    $.getJSON("./Content/navigation.json")
+    .done(function (data) {
+        if (!data || data.length == 0) {
+            return;
+        }
+
         var activeIndex = parseInt(sessionStorage.activeIndex);
         var items = "";
 
@@ -40,5 +45,8 @@
             var active = $(event.currentTarget).accordion("option", "active");
             sessionStorage.setItem('activeIndex', active);
         });
+    })
+    .fail(function (error) {
+        //no navigation
     });
 };
