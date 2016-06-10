@@ -179,8 +179,25 @@
 
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
-       
+        
     </div>
-    
+    <script id="newsitem" type="text/x-jsrender">
+        <div class="newsitem">
+            <h2><a href="#">{{:title}}</a></h2>
+            <p>{{:description}}</p>
+            <p class="date">
+                <span id="author">Posted by: <i>{{if user}} {{:user.name}} {{/if}}</i></span>
+                <span>
+                    <img src="images/more.gif" alt="" /> <a href="{{:link}}">Read more</a>
+                </span>
+                <span>
+                    <img src="images/comment.gif" alt="" /> <a href="{{:href}}">Comments({{:comments}})</a>
+                </span>
+                <span>
+                    <img src="images/timeicon.gif" alt="" /> {{date:submit_date}}
+                </span>
+            </p>
+        </div>
+    </script>    
 </body>
 </html>
