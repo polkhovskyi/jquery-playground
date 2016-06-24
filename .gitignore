@@ -3,6 +3,7 @@
 ################################################################################
 
 /.vs
-/FR_05/bin
-/FR_05/FR_05.csproj.user
+/jquery-playground/bin
+/jquery-playground/obj
+/jquery-playground//jquery-playground/bin.csproj.user
 /packages
